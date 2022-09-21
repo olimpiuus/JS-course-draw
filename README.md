@@ -1,1 +1,1 @@
-# JS-course-draw
+# Project Library
