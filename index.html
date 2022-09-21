@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <form action="" class="form" id="form">
+            <ul class="form__input-list">
+                <li class="form__item form__item_Title">
+                    <label for="Title" class="form__label">Title</label>
+                    <input type="text" name="Title" id="title" placeholder="Title" class="form__input">
+                </li>
+                <li class="form__item form__item_Author">
+                    <label for="Author" class="form__label">Author</label>
+                    <input type="text" name="Author" id="author" placeholder="Author" class="form__input">
+                </li>
+                <li class="form__item form__item_Number of pages">
+                    <label for="Pages" class="form__label">Number of pages</label>
+                    <input type="number" name="Pages" id="pages" placeholder="Number of pages" class="form__input">
+                </li>
+                <li class="form__item form__item_Read yet?">
+                    <label for="Read yet?" class="form__label">Read yet?</label>
+                    <select type="" name="Read yet?" id="read-yet" placeholder="Read yet?" class="form__input">
+                        <option value="false" >No</option>
+                        <option value="true">Yes</option>
+                    </select>
+                </li>
+            </ul>
+        </form>
+        <button class="form__button button" id="bookAddBtn" type="">Add</button>
+    </div>
+
+    <script src="main.js" defer></script>
+</body>
+
+</html>
