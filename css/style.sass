@@ -1,0 +1,59 @@
+@import reset.sass
+@import slyder.sass
+@import modal.sass
+
+
+.container 
+  // display: grid
+  // grid-template-columns: repeat(4,1fr)
+  // grid-auto-flow: column
+// BOOK CARD
+
+.book-card
+  display: grid
+  padding: 20px
+
+  height: 200px
+  width: 100px
+  // border: 1px solid red
+  border-radius: 10px
+
+  background-color: #e1ace3
+  &__title
+    font-size: 24px
+
+  &__info-list
+    display: grid
+    align-items: flex-end
+
+  &__info-item
+
+
+  &__author
+
+
+  &__pages
+
+
+  &__status_read
+    display: grid
+    grid-template-areas:"question question question""No switch Yes"
+    row-gap: 10px
+    gap: 5px
+    align-items: center
+    justify-content: center
+    
+    // align-items: center
+    // justify-content: space-between
+
+  &__text
+    &_question 
+      grid-area: question
+    &_no
+    &_yes
+
+
+.book-container
+  &__list
+    display: grid
+    grid-auto-flow: column
