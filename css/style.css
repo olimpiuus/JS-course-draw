@@ -146,6 +146,7 @@ input:checked + .slider:before {
 }
 
 .book-card {
+  position: relative;
   display: grid;
   padding: 20px;
   height: 200px;
@@ -153,8 +154,21 @@ input:checked + .slider:before {
   border-radius: 10px;
   background-color: #e1ace3;
 }
+.book-card_read {
+  background-color: #ace3bf;
+}
 .book-card__title {
   font-size: 24px;
+}
+.book-card__delete {
+  position: absolute;
+  left: 80%;
+  top: 5%;
+  opacity: 0.5;
+  border: none;
+}
+.book-card__delete:hover {
+  opacity: 1;
 }
 .book-card__info-list {
   display: grid;

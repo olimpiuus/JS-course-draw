@@ -10,6 +10,7 @@
 // BOOK CARD
 
 .book-card
+  position: relative
   display: grid
   padding: 20px
 
@@ -19,8 +20,19 @@
   border-radius: 10px
 
   background-color: #e1ace3
+  &_read
+    background-color: #ace3bf
   &__title
     font-size: 24px
+
+  &__delete
+    position: absolute
+    left: 80%
+    top: 5%
+    opacity: 0.5
+    border: none
+    &:hover
+      opacity: 1
 
   &__info-list
     display: grid

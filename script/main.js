@@ -1,6 +1,8 @@
-let myLibrary = [{ title: "Omen", author: "Vasya", pages: 323, read: false }, { title: "Omen1", author: "Vasya", pages: 323, read: false }, { title: "Omen2", author: "Vasya", pages: 323, read: false }, { title: "Omen3", author: "Vasya", pages: 323, read: false }]
+let myLibrary = [{ title: "Omen", author: "Vasya", pages: 323, read: true }, { title: "Omen1", author: "Vasya", pages: 323, read: false }, { title: "Omen2", author: "Vasya", pages: 323, read: false }, { title: "Omen3", author: "Vasya", pages: 323, read: false }]
 
 const bookContainer = document.querySelector('#bookContainer')
+
+
 
 const newBookForm = {
     inputs: {
@@ -32,13 +34,15 @@ function addBookToLibrary() {
     })
 }
 
+
+
 function fillHtlmlFromLibrary() {
 
-
-    function createBookCard(array) {
+    function createBookCard(array, index) {
         let bookCard = document.createElement('li')
-        bookCard.innerHTML = `<div class="book-card">
+        bookCard.innerHTML = `<div class="book-card ${array.read ? 'book-card_read':''}">
         <h3 class="book-card__title">${array.title}</h3>
+        <button class="book-card__delete" data-id="${index}">x</button>
         <ul class="book-card__info-list">
             <li class="book-card__info-item">Author: <span class="book-card__author">${array.author}</span></li>
             <li class="book-card__info-item">Number of pages: <span class="book-card__pages">${array.pages}</span></li>
@@ -55,18 +59,39 @@ function fillHtlmlFromLibrary() {
             </li>
         </ul>
         </div>`
+
+        let btnDelete = bookCard.querySelector('.book-card__delete')
+        btnDelete.onclick = () => deleteBookByIndex(btnDelete.getAttribute('data-id'))
+
+        let checkBox = bookCard.querySelector('[type="checkbox"]')
+        array.read ? checkBox.checked = true : checkBox.checked = false
+        checkBox.onchange = () => {
+            bookCard.children[0].classList.toggle('book-card_read')
+            myLibrary[index].read = !myLibrary[index].read
+
+        }
+
+
         return bookCard
     }
+
+
     bookContainer.innerHTML = ''
-    myLibrary.forEach((el) => {
-        bookContainer.append(createBookCard(el))
+    myLibrary.forEach((el, index) => {
+        bookContainer.append(createBookCard(el, index))
     })
 
 
-
-
-
 }
+
+
+function deleteBookByIndex(indexOfBook) {
+    if (confirm("Delete book?")) {
+        myLibrary.splice(indexOfBook, 1)
+        fillHtlmlFromLibrary()
+    }
+}
+
 
 
 addBookToLibrary()
